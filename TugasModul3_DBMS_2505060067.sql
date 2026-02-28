@@ -1,6 +1,6 @@
 -- MariaDB dump 10.19  Distrib 10.4.32-MariaDB, for Win64 (AMD64)
 --
--- Host: localhost    Database: data_bases
+-- Host: localhost    Database: data_mahasiswa
 -- ------------------------------------------------------
 -- Server version	10.4.32-MariaDB
 
@@ -16,28 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `dozens`
+-- Table structure for table `data_mahasiswa`
 --
 
-DROP TABLE IF EXISTS `dozens`;
+DROP TABLE IF EXISTS `data_mahasiswa`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `dozens` (
-  `Kode` varchar(6) NOT NULL,
-  `Nama` char(80) NOT NULL,
-  `ID` varchar(10) NOT NULL,
-  `Email` char(80) NOT NULL,
-  PRIMARY KEY (`Kode`)
+CREATE TABLE `data_mahasiswa` (
+  `NPM` char(5) NOT NULL,
+  `Nama` varchar(25) NOT NULL,
+  `Tempat_Lahir` varchar(30) NOT NULL,
+  `Tanggal_Lahir` date NOT NULL,
+  `Jenis_Kelamin` enum('L','P') NOT NULL,
+  `No_Hp` varchar(25) NOT NULL,
+  PRIMARY KEY (`NPM`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `dozens`
+-- Dumping data for table `data_mahasiswa`
 --
 
-LOCK TABLES `dozens` WRITE;
-/*!40000 ALTER TABLE `dozens` DISABLE KEYS */;
-/*!40000 ALTER TABLE `dozens` ENABLE KEYS */;
+LOCK TABLES `data_mahasiswa` WRITE;
+/*!40000 ALTER TABLE `data_mahasiswa` DISABLE KEYS */;
+/*!40000 ALTER TABLE `data_mahasiswa` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -48,10 +50,12 @@ DROP TABLE IF EXISTS `mahasiswa`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `mahasiswa` (
-  `NPM` varchar(10) NOT NULL,
-  `Nama` char(80) NOT NULL,
-  `Rombel` varchar(2) NOT NULL,
-  `Email` char(80) NOT NULL,
+  `NPM` char(5) NOT NULL,
+  `Nama` varchar(25) NOT NULL,
+  `Tempat_Lahir` varchar(30) NOT NULL,
+  `Tanggal_Lahir` date NOT NULL,
+  `Jenis_Kelamin` enum('L','P') NOT NULL,
+  `No_Hp` varchar(25) NOT NULL,
   PRIMARY KEY (`NPM`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -62,32 +66,8 @@ CREATE TABLE `mahasiswa` (
 
 LOCK TABLES `mahasiswa` WRITE;
 /*!40000 ALTER TABLE `mahasiswa` DISABLE KEYS */;
+INSERT INTO `mahasiswa` VALUES ('25050','Fauzan Fahmi Basyir','Klaten','2007-04-20','L','081328432584'),('25051','Rish junaidi','PuertoRico','2006-02-14','L','083425678798'),('25052','Plenger Mukyo','GigaPurbalingga','2006-05-12','L','083434568798'),('25054','El Plentero','Spanjama','2007-05-22','L','0812245668798'),('25055','Mariadi Bimasakti','Mojonigrat','2006-04-10','L','0854674568798'),('25056','Lala Balala','Belkan','2006-02-15','P','088745639898');
 /*!40000 ALTER TABLE `mahasiswa` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `matkul`
---
-
-DROP TABLE IF EXISTS `matkul`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `matkul` (
-  `Kode` varchar(10) NOT NULL,
-  `Nama` char(80) NOT NULL,
-  `Rombel` varchar(2) NOT NULL,
-  `SKS` varchar(2) NOT NULL,
-  PRIMARY KEY (`Kode`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `matkul`
---
-
-LOCK TABLES `matkul` WRITE;
-/*!40000 ALTER TABLE `matkul` DISABLE KEYS */;
-/*!40000 ALTER TABLE `matkul` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -99,4 +79,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-02-18 17:07:48
+-- Dump completed on 2026-02-28 15:26:54
